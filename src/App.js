@@ -1,5 +1,6 @@
 import React from "react";
 import FoodCard from "./components/FoodCard/FoodCard";
+import Navbar from "./components/Navbar/Navbar";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -55,15 +56,19 @@ class App extends React.Component {
   }
   render() {
     return (
-      <>
-        <div className="mx-auto lg:max-w-5xl grid justify-items-center grid-cols-1 lg:grid-cols-3 gap-y-6 my-5">
+      <div className="lg:m-2">
+        <Navbar />
+        <div className="mx-auto text-center lg:text-left lg:max-w-5xl text-2xl font-bold mt-6 text-red-600">
+          All Categories
+        </div>
+        <div className="mx-auto lg:max-w-5xl grid justify-items-center lg:justify-items-start grid-cols-1 lg:grid-cols-3 gap-y-6 my-5">
           {this.state.images.map((item, index) => {
             return (
               <FoodCard key={index} url={item.url} category={item.category} />
             );
           })}
         </div>
-      </>
+      </div>
     );
   }
 }
