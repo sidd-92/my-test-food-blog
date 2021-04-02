@@ -3,6 +3,11 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./assets/main.css";
+import "primeflex/primeflex.css";
+import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import "./assets/custom.css";
 
 ReactDOM.render(
   <React.StrictMode>
