@@ -1,14 +1,21 @@
 import { Menubar } from "primereact/menubar";
 import React from "react";
+import { linkHome, linkCategories } from "../../routes";
 
 class Navbar extends React.Component {
   state = {
     items: [
       {
         label: "Home",
+        command: (event) => {
+          this.props.history.push(linkHome);
+        },
       },
       {
         label: "Categories",
+        command: (event) => {
+          this.props.history.push(linkCategories);
+        },
       },
     ],
   };
