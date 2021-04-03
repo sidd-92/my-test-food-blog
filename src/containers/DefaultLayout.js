@@ -1,11 +1,11 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import routes from "../routes";
 import Navbar from "../components/Navbar/Navbar";
 class DefaultLayout extends React.Component {
   render() {
     return (
-      <div>
+      <>
         <Navbar location={this.props.location} history={this.props.history} />
         <main>
           <React.Suspense fallback={<div>Loading...</div>}>
@@ -24,7 +24,7 @@ class DefaultLayout extends React.Component {
             </Switch>
           </React.Suspense>
         </main>
-      </div>
+      </>
     );
   }
 }
