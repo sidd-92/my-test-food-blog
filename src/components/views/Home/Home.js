@@ -1,5 +1,6 @@
 import React from "react";
 import FoodCard from "../../FoodCard/FoodCard";
+import { ScrollTop } from "primereact/scrolltop";
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -55,18 +56,21 @@ class Home extends React.Component {
   }
   render() {
     return (
-      <div className="lg:m-2">
-        <div className="mx-auto text-center lg:text-left lg:max-w-5xl text-2xl font-bold mt-6 text-red-600">
-          All Categories
+      <>
+        <div className="lg:m-2">
+          <div className="mx-auto text-center lg:text-left lg:max-w-5xl text-2xl font-bold mt-6 text-red-600">
+            All Categories
+          </div>
+          <div className="mx-auto lg:max-w-5xl grid justify-items-center lg:justify-items-start grid-cols-1 lg:grid-cols-3 gap-y-6 my-5">
+            {this.state.images.map((item, index) => {
+              return (
+                <FoodCard key={index} url={item.url} category={item.category} />
+              );
+            })}
+          </div>
+          <ScrollTop />
         </div>
-        <div className="mx-auto lg:max-w-5xl grid justify-items-center lg:justify-items-start grid-cols-1 lg:grid-cols-3 gap-y-6 my-5">
-          {this.state.images.map((item, index) => {
-            return (
-              <FoodCard key={index} url={item.url} category={item.category} />
-            );
-          })}
-        </div>
-      </div>
+      </>
     );
   }
 }

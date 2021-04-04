@@ -11,7 +11,9 @@ export const linkNameCategories = "Categories";
 
 //Pages
 const Home = React.lazy(() => import("./components/views/Home/Home"));
-const Categories = () => <div>Categories</div>;
+const Categories = React.lazy(() =>
+  import("./components/views/Categories/Categories")
+);
 //Pages
 
 const routes = [
