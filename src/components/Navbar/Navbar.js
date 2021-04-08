@@ -4,12 +4,12 @@ import { linkHome, linkCategories } from "../../routes";
 class Navbar extends React.Component {
   render() {
     let navClassName =
-      "nav-link text-xs lg:text-base p-2 rounded-md mb-1 sm:mb-0 hover:bg-red-300 hover:text-white transition duration-200";
+      "text-xs lg:text-base sm:p-2 rounded-md  transition duration-200";
     return (
-      <nav className="absolute sm:static top-0 w-full flex justify-center sm:justify-start items-center flex-col sm:flex-row menubar">
+      <nav className="absolute sm:static top-0 w-full flex justify-center sm:justify-start items-center flex-row menubar shadow-sm sm:shadow-md">
         <NavLink
           to={linkHome}
-          className="menubar-title text-md lg:text-xl mr-0 sm:mr-4 mb-2 sm:mb-0"
+          className="menubar-title text-md lg:text-xl mr-auto sm:mr-8"
         >
           MyFoodBlog
         </NavLink>
@@ -17,8 +17,8 @@ class Navbar extends React.Component {
           to={linkHome}
           className={
             this.props.location.pathname === linkHome
-              ? "nav-link text-xs p-2 rounded-md  lg:text-base bg-red-300 mb-1 sm:mb-0 text-white sm:mr-1"
-              : `${navClassName} sm:mr-1`
+              ? "text-xs p-2 rounded-md  lg:text-base bg-crimson  text-white mr-1"
+              : `${navClassName} mr-1 p-2`
           }
         >
           Home
@@ -27,8 +27,8 @@ class Navbar extends React.Component {
           to={linkCategories}
           className={
             this.props.location.pathname === linkCategories
-              ? "nav-link  text-xs p-2 rounded-md  lg:text-base bg-red-300 mb-1 sm:mb-0 text-white sm:ml-1"
-              : `${navClassName} sm:ml-1`
+              ? "text-xs p-2 rounded-md  lg:text-base bg-crimson  text-white sm:ml-1"
+              : `${navClassName} sm:ml-1 p-2`
           }
         >
           Categories

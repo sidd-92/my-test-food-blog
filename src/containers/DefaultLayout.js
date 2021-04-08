@@ -7,7 +7,7 @@ class DefaultLayout extends React.Component {
     return (
       <>
         <Navbar location={this.props.location} history={this.props.history} />
-        <main className="mt-32 p-2 sm:p-0 sm:mt-0">
+        <main className="mt-12 p-2 sm:p-0 sm:mt-0">
           <React.Suspense fallback={<div>Loading...</div>}>
             <Switch>
               {routes.map((route, idx) => {
