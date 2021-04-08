@@ -1,4 +1,5 @@
 import React from "react";
+
 //Links
 export const linkHome = "/";
 export const linkCategories = "/categories";
@@ -14,6 +15,9 @@ const Home = React.lazy(() => import("./components/views/Home/Home"));
 const Categories = React.lazy(() =>
   import("./components/views/Categories/Categories")
 );
+const CategoryDetails = React.lazy(() =>
+  import("./components/views/CategoryDetails/CategoryDetails")
+);
 //Pages
 
 const routes = [
@@ -28,6 +32,11 @@ const routes = [
     exact: true,
     name: linkNameCategories,
     component: Categories,
+  },
+  {
+    path: "/:id",
+    name: "CategoryDetails",
+    component: CategoryDetails,
   },
 ];
 

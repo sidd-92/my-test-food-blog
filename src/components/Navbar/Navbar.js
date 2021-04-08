@@ -17,8 +17,8 @@ class Navbar extends React.Component {
           to={linkHome}
           className={
             this.props.location.pathname === linkHome
-              ? "nav-link text-xs p-2 rounded-md  lg:text-base bg-red-300 mb-1 sm:mb-0 text-white sm:mr-2"
-              : navClassName
+              ? "nav-link text-xs p-2 rounded-md  lg:text-base bg-red-300 mb-1 sm:mb-0 text-white sm:mr-1"
+              : `${navClassName} sm:mr-1`
           }
         >
           Home
@@ -27,8 +27,8 @@ class Navbar extends React.Component {
           to={linkCategories}
           className={
             this.props.location.pathname === linkCategories
-              ? "nav-link  text-xs p-2 rounded-md  lg:text-base bg-red-300 mb-1 sm:mb-0 text-white sm:ml-2"
-              : navClassName
+              ? "nav-link  text-xs p-2 rounded-md  lg:text-base bg-red-300 mb-1 sm:mb-0 text-white sm:ml-1"
+              : `${navClassName} sm:ml-1`
           }
         >
           Categories
