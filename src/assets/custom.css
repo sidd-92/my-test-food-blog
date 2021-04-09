@@ -28,27 +28,3 @@ body {
   color: rgba(220, 38, 38, 1);
   font-weight: bolder;
 }
-.p-chip.custom-chip {
-  background: white;
-  height: 18px;
-  width: fit-content;
-  font-size: 12px;
-  font-weight: 100;
-  border: 1px solid rgba(220, 38, 38, 1);
-  color: rgba(220, 38, 38, 1);
-  transition: 0.2s ease;
-  cursor: pointer;
-}
-
-.p-chip.custom-chip:hover {
-  background-color: rgba(220, 38, 38, 1);
-  color: white;
-}
-
-@media only screen and (min-width: 900px) {
-  .p-chip.custom-chip {
-    font-size: 14px;
-    height: 28px;
-    width: fit-content;
-  }
-}

@@ -73,33 +73,21 @@ class Home extends React.Component {
       images: [
         {
           url:
-            "https://food-blog-images-all.s3.ap-south-1.amazonaws.com/food-blog-images/all-recipies.png",
-          category: "All Recipies",
-          key: "allrecipies",
-        },
-        {
-          url:
-            "https://food-blog-images-all.s3.ap-south-1.amazonaws.com/food-blog-images/all-beverages.png",
-          category: "All Beverages",
-          key: "allbeverages",
-        },
-        {
-          url:
             "https://food-blog-images-all.s3.ap-south-1.amazonaws.com/food-blog-images/breakfast.png",
           category: "Breakfast",
           key: "breakfast",
         },
         {
           url:
-            "https://food-blog-images-all.s3.ap-south-1.amazonaws.com/food-blog-images/cakes.png",
-          category: "Cakes",
-          key: "cakes",
+            "https://food-blog-images-all.s3.ap-south-1.amazonaws.com/food-blog-images/lunch.png",
+          category: "Lunch",
+          key: "lunch",
         },
         {
           url:
-            "https://food-blog-images-all.s3.ap-south-1.amazonaws.com/food-blog-images/chutney.png",
-          category: "Chutney",
-          key: "chutney",
+            "https://food-blog-images-all.s3.ap-south-1.amazonaws.com/food-blog-images/subji.png",
+          category: "Subjis",
+          key: "subji",
         },
         {
           url:
@@ -125,6 +113,29 @@ class Home extends React.Component {
           category: "Rice",
           key: "rice",
         },
+        {
+          url:
+            "https://food-blog-images-all.s3.ap-south-1.amazonaws.com/food-blog-images/sweets.png",
+          category: "Sweets",
+          key: "sweets",
+        },
+        {
+          url:
+            "https://food-blog-images-all.s3.ap-south-1.amazonaws.com/food-blog-images/chat.png",
+          category: "Chaat",
+          key: "chaat",
+        },
+        {
+          url:
+            "https://food-blog-images-all.s3.ap-south-1.amazonaws.com/food-blog-images/indian-breads.png",
+          category: "Indian Breads",
+          key: "indian-breads",
+        },
+        {
+          url: null,
+          category: "View All Categories",
+          key: "all",
+        },
       ],
     };
   }
@@ -146,11 +157,23 @@ class Home extends React.Component {
                       className="w-32 sm:w-auto object-cover"
                     />
                     <div className="relative p-2 sm:p-3">
-                      <div className=" text-sm sm:text-base text-crimson hover:underline cursor-pointer">
+                      <div
+                        onClick={() => {
+                          this.props.history.push(`/recipies/${item.id}`);
+                        }}
+                        className=" text-sm sm:text-base text-crimson hover:underline cursor-pointer"
+                      >
                         {item.name}
                       </div>
                       <div className="absolute bottom-0 left-0 mb-2 lg:mb-3 ml-2">
-                        <CategoryChip label={item.category} />
+                        <CategoryChip
+                          handleChipClick={() => {
+                            this.props.history.push(
+                              `/${item.category.toLowerCase()}`
+                            );
+                          }}
+                          label={item.category}
+                        />
                       </div>
                     </div>
                   </div>
@@ -167,10 +190,14 @@ class Home extends React.Component {
                 return (
                   <FoodCard
                     handleClick={(e) => {
-                      this.props.history.push(`/${item.key}`);
+                      if (item.key === "all") {
+                        this.props.history.push(`/categories`);
+                      } else {
+                        this.props.history.push(`/${item.key}`);
+                      }
                     }}
                     key={index}
-                    url={item.url}
+                    url={item.key === "all" ? "null" : item.url}
                     category={item.category}
                   />
                 );
