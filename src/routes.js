@@ -18,6 +18,10 @@ const Categories = React.lazy(() =>
 const CategoryDetails = React.lazy(() =>
   import("./components/views/CategoryDetails/CategoryDetails")
 );
+const RecipiesDetails = React.lazy(() =>
+  import("./components/views/RecipiesDetail/RecipiesDetails")
+);
+
 //Pages
 
 const routes = [
@@ -37,6 +41,13 @@ const routes = [
     path: "/:id",
     name: "CategoryDetails",
     component: CategoryDetails,
+    exact: true,
+  },
+  {
+    exact: true,
+    path: "/recipies/:id",
+    name: "RecipiesDetails",
+    component: RecipiesDetails,
   },
 ];
 
